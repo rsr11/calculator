@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Document</title>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction:column ;
+            background-color: #f1f8d5;
+            /* color: aliceblue; */
+        }
+        #buttons{
+            margin-top:25px;
+        }
+        button{ 
+            height: 67px;
+            width: 67px;
+            margin: 7px;
+            border-radius: 11px;
+            font-size: large;
+            font-weight: 700;
+            cursor: pointer;
+            color: aliceblue;
+            border: none;
+            background-color: #333;
+        }
+        h1{
+            background-color: white;
+            /* box-shadow: 3px 3px 3px 3px linen; */
+            /* border-bottom: 7px solid #111; */
+            color: rgb(11, 13, 15);
+            font-size: 3rem;
+            font-weight: 700;
+            /* font-family: Georgia, 'Times New Roman'; */
+            text-align:center;
+            height: 57px;
+            width: 300px;
+            /* font-style: bold; */
+            /* margin-top: 150px; */
+            border-radius: 10px;
+        }
+        .red:hover{
+            background-color: red;
+        }
+        .yellow:hover{
+            background-color: rgb(191, 191, 81);
+        }
+        button:hover{
+            background-color: rgb(120, 195, 9);
+            box-shadow: 3px 3px 3px 3px #111;
+        }
+        .box{
+            position: absolute;
+            height: 600px;
+            width: 351px;
+            border:10px solid black;
+            box-shadow: 3px 1px 2px 1px #222;
+            background-color: #24241f;
+            /* top: 50px; */
+            /* left: 515px; */
+            z-index:-2;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+    </style>
+    <div class="box"></div>
+        <div class="text">
+        <h1 id="text"></h1>
+    </div>
+        <div id="buttons">
+            <div class="row1">
+            <button id="AC" class="red" class="buttons">AC</button>
+            <button id="Cut" class="red" class="buttons">X</button>
+            <button id="Remainder" class="buttons">%</button>
+            <button id="Divide" class="buttons">/</button>
+        </div>
+        <div class="row2">
+            <button id="Seven" class="buttons" >7</button>
+            <button id="Eight" class="buttons" >8</button>
+            <button id="Nine" class="buttons" >9</button>
+            <button id="Multiply" class="buttons" >*</button>
+        </div>
+        <div class="row3">
+            <button id="Six" class="buttons" >6</button>
+            <button id="Five" class="buttons" >5</button>
+            <button id="Four" class="buttons" >4</button>
+            <button id="Minus" class="buttons" >-</button>
+        </div>
+        <div class="row4"> 
+            <button id="One" class="buttons" >1</button>
+            <button id="Two" class="buttons" >2</button>
+            <button id="Three" class="buttons" >3</button>
+            <button id="Plus" class="buttons" >+</button>
+        </div>
+        <div class="row5">
+            <button id="Dot" class="buttons" >.</button>
+            <button id="Zero" class="buttons" >0</button>
+            <button id="IsEqual" class="buttons" class="yellow" class="buttons" >=</button>
+            <button id="DoubleZero" class="buttons" >00</button>
+        </div>
+        </div>
+
+    <script>
+        
+
+        const Textpoint = document.getElementById("text");
+        // for first row
+        const AC = document.getElementById("AC");
+        AC.addEventListener("click",()=> Textpoint.innerHTML=" " ); 
+
+        const Cut= document.getElementById("Cut");
+        Cut.addEventListener("click",()=> {
+
+            let PrevText = Textpoint.innerHTML;
+            let RemoveOne = PrevText.slice(0,PrevText.length-1);
+            // console.log(RemoveOne);
+            Textpoint.innerHTML=RemoveOne; 
+        });
+
+
+        const Remainder = document.getElementById("Remainder");
+        Remainder.addEventListener("click",()=> {});
+
+        const Divide = document.getElementById("Divide");
+        Divide.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Divide.innerHTML}` );
+        
+
+        // for second row 7,8,9 *
+        const Seven = document.getElementById("Seven");
+        Seven.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Seven.innerHTML}` );
+
+        const Eight = document.getElementById("Eight");
+        Eight.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Eight.innerHTML}` );
+
+        const Nine = document.getElementById("Nine");
+        Nine.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Nine.innerHTML}` );
+
+        const Multiply = document.getElementById("Multiply");
+        Multiply.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Multiply.innerHTML}` );
+
+
+        // for tthird row 6,5,4 -
+        const Six = document.getElementById("Six");
+        Six.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Six.innerHTML}` );
+
+        const Five = document.getElementById("Five");
+        Five.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Five.innerHTML}` );
+
+        const Four = document.getElementById("Four");
+        Four.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Four.innerHTML}` );
+
+        const Minus = document.getElementById("Minus");
+        Minus.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Minus.innerHTML}` );
+
+
+        // for fourth row 1,2,3 +
+        const One = document.getElementById("One");
+        One.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ One.innerHTML}` );
+
+        const Two = document.getElementById("Two");
+        Two.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Two.innerHTML}` );
+
+        const Three = document.getElementById("Three");
+        Three.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Three.innerHTML}` );
+
+        const Plus = document.getElementById("Plus");
+        Plus.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Plus.innerHTML}` );
+
+
+        // for 5th row .,0,=,00
+        const Dot = document.getElementById("Dot");
+        Dot.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Dot.innerHTML}` );
+
+        const Zero = document.getElementById("Zero");
+        Zero.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ Zero.innerHTML}` );
+
+        const IsEqual = document.getElementById("IsEqual");
+        IsEqual.addEventListener("click",()=> { 
+            let answer = eval(Textpoint.innerHTML);
+            console.log(answer);
+            Textpoint.innerHTML=answer;
+
+            
+             
+        } );
+
+        const DoubleZero = document.getElementById("DoubleZero");
+        DoubleZero.addEventListener("click",()=> Textpoint.innerHTML=`${Textpoint.innerHTML+ DoubleZero.innerHTML}` );
+
+
+
+         
+
+    </script>
+</body>
+</html>
